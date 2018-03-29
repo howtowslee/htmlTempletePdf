@@ -9,20 +9,16 @@ var defaultConfig = {
   returnType: ["pdf"] // string | html | pdf
 }
 
-// var params = {
-//   templatePath:{},
-//   data:{},
-//   config:{}
-// }
-
 function generate(params){
   return new Promise((resolve, reject) => {
+
+
     params.config = {...defaultConfig, ...params.config}
   
-    if(params.templatePath) {
+    if(!params.templatePath) {
       reject("html 이 정의되지 않았습니다.")
     }
-    if(params.data){
+    if(!params.data){
       reject("data 가 정의되지 않았습니다.")
     }
   
